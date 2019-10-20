@@ -9,7 +9,7 @@ import {Conta} from '../models/conta';
 @Injectable({
   providedIn: 'root'
 })
-export class ContaServiceService {
+export class ContaService {
 
   private url = `http://localhost:8080/contas`;
 
@@ -24,7 +24,7 @@ export class ContaServiceService {
   }
 
   salvar(conta: Conta) {
-    return this.http.post<any>(`${this.url}`, conta);
+    return this.http.post<any>(`${this.url}`, conta, {responseType: 'text'});
   }
 
 }

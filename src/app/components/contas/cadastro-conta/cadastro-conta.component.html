@@ -1,0 +1,41 @@
+<div class="spinner">
+  <mat-progress-bar [style.display]="processando ? 'block' : 'none'" mode="indeterminate"></mat-progress-bar>
+</div>
+
+<form (ngSubmit)="salvar()" #formCadastro="ngForm">
+  <div>
+    <mat-form-field appearance="outline" class="campo-nome">
+      <mat-label>Nome</mat-label>
+      <input  [(ngModel)]="conta.nome"  name="nome" required matInput
+             placeholder="Nome.." autocomplete="off" [disabled]="processando">
+      <mat-error>Este campo é obrigatório</mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline">
+      <mat-label>Valor</mat-label>
+      <input  [(ngModel)]="conta.valorOriginal"  name="valor" required matInput  type="number"
+              placeholder="Valor.." autocomplete="off" [disabled]="processando">
+      <mat-error>Este campo é obrigatório</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Data de Vencimento</mat-label>
+      <input  [(ngModel)]="conta.dataVencimento"  name="dataVencimento" required matInput  type="date"
+              placeholder="Data de Vencimento.." autocomplete="off" [disabled]="processando">
+      <mat-error>Este campo é obrigatório</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Data de Pagamento</mat-label>
+      <input  [(ngModel)]="conta.dataPagamento"  name="dataPagamento" required matInput  type="date"
+              placeholder="Data de Pagamento.." autocomplete="off" [disabled]="processando">
+      <mat-error>Este campo é obrigatório</mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <button mat-raised-button color="primary" type="submit"
+            [disabled]="!formCadastro.valid">Salvar
+    </button>
+  </div>
+</form>
